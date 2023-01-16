@@ -8,7 +8,8 @@ import { useEffect, useState } from "react";
 import "../css/ProceedTemplate.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-const { sendMail, getSendMailData } = require("../common/utils");
+const { sendMail } = require("../common/utils");
+import { getSendMailData } from "../common/utils";
 const { getProductIdFromEngine } = require("../common/engine");
 const { getProductIdFromUSAEngine } = require("../common/usa-engine");
 const axios = require("axios");
@@ -140,7 +141,7 @@ const CallBack = ({
               const SendWhatsappMessage = async () => {
                 const config = {
                   method: "post",
-                  url: `https://${process.env.REACT_APP_SEND_MAIL_API_BASE_URL}/api/device/consultation`,
+                  url: `http://${process.env.REACT_APP_SEND_MAIL_API_BASE_URL}/api/device/consultation`,
                   headers: {
                     "Content-Type": "application/json",
                   },
